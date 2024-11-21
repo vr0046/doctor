@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Mouse Button Event</title>
+<style>
+body {
+font-family: Arial, sans-serif; background-color: #f2f2f2;
+}
+h1 {
+text-align: center; color: #333;
+}
+p {
+margin-bottom: 10px;
+}
+.container {
+max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#message { display: none;
+text-align: center; margin-top: 20px; padding: 10px;
+background-color: #ffd700; color: #333;
+border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Mouse Button Event</h1>
+<p>Press and hold the mouse button to show the message.</p>
+<p>Release the mouse button to hide the message.</p>
+<div id="message">Mouse button is pressed!</div>
+</div>
+<script>
+var message = document.getElementById('message'); document.addEventListener('mousedown', function() {
+message.style.display = 'block';
+});
+document.addEventListener('mouseup', function() { message.style.display = 'none';
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+<html>
+<head>
+<style>
+p {position: absolute; top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+var var1 = setInterval(inTimer, 1000); var fs = 5;
+var ids = document.getElementById("demo"); function inTimer()
+{
+ids.innerHTML = 'TEXT GROWING';
+ids.setAttribute('style', "font-size: " + fs
++ "px; color: red"); fs += 5;
+if(fs >= 50 )
+{
+clearInterval(var1);
+ 
+var2 = setInterval(deTimer, 1000);
+}
+}
+function deTimer()
+{
+fs -= 5;
+ids.innerHTML = 'TEXT SHRINKING';
+ids.setAttribute('style', "font-size: "
++ fs + "px; color: blue"); if(fs === 5 )
+{
+clearInterval(var2);
+}
+}
+</script>
+</body>
+</html>
