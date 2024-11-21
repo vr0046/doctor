@@ -1,0 +1,92 @@
+<html>
+    <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToDo App</title>
+<link rel="stylesheet" href="pgrm.css">
+</head>
+<body>
+<header>
+<h1>ToDo App</h1>
+</header>
+<main>
+<form id="todo-form">
+<input type="text" id="todo-input" placeholder="Enter a task">
+<button type="submit">Add</button>
+</form>
+<ul id="todo-list"></ul>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    }
+    header {
+    background-color: #f2f2f2; padding: 20px;
+    text-align: center;
+    }
+    h1 { margin: 0;
+    }
+    form { display: flex;
+    margin-bottom: 20px;
+    }
+    input[type="text"] { flex: 1;
+    padding: 10px;
+    }
+    button {
+    padding: 10px 20px; background-color: #4CAF50; color: #fff;
+    border: none; cursor: pointer;
+    }
+    ul {
+    list-style-type: none; padding: 0;
+    }
+    li {
+    display: flex;
+    align-items: center; padding: 10px;
+    border-bottom: 1px solid #ccc;
+    }
+    li:last-child {
+    border-bottom: none;
+    }
+
+
+
+
+    
+
+if ('serviceWorker' in navigator) { navigator.serviceWorker
+    .register('service-worker.js')
+    .then(function() {
+    console.log('Service Worker Registered');
+    });
+    const todoForm = document.getElementById('todo-form'); const todoInput = document.getElementById('todo-input');
+    const todoList = document.getElementById('todo-list');
+    tasks.forEach(function(task) {
+    const li = document.createElement('li'); li.textContent = task.title;
+    if (task.completed) { li.classList.add('completed');
+    }
+    li.addEventListener('click', function() { task.completed = !task.completed; renderTasks();
+    });
+    todoList.appendChild(li);
+    });
+    }
+    const taskTitle = todoInput.value.trim();
+    if (taskTitle !== '') { const task = {
+     title: taskTitle, completed: false
+    };
+    tasks.push(task); renderTasks();
+    todoInput.value = '';
+    }
+    
+    
+    
+    .completed {
+    text-decoration: line-through;
+    }
+    
